@@ -1,0 +1,51 @@
+/* Carosello */
+.carousel-container {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center; /* Allinea le immagini al centro */
+    gap: 10px; /* Spaziatura tra le immagini */
+    flex-wrap: wrap; /* Permette di andare a capo se non c'è spazio */
+    max-width: 100%; /* Imposta un limite massimo alla larghezza */
+}
+
+.carousel img {
+    flex: 1 1 calc(20% - 10px); /* Ogni immagine occupa il 20% della larghezza con spazio tra le immagini */
+    max-width: 150px; /* Limita la larghezza massima */
+    height: auto; /* Mantiene le proporzioni */
+    border-radius: 10px; /* Angoli arrotondati */
+    object-fit: cover; /* Mantiene proporzioni visive */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effetti animati */
+}
+
+.carousel img:hover {
+    transform: scale(1.1); /* Ingrandisce leggermente l'immagine */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Ombra più accentuata */
+}
+
+/* Stile responsivo per schermi piccoli */
+@media (max-width: 768px) {
+    .carousel img {
+        flex: 1 1 calc(33.33% - 10px); /* Ogni immagine occupa un terzo della larghezza */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel img {
+        flex: 1 1 calc(50% - 10px); /* Ogni immagine occupa metà della larghezza */
+    }
+}
+
+
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}

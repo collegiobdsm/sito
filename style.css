@@ -1,0 +1,748 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+body {
+    font-family: 'Cinzel', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    background-color: #007acc;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #005f99;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+main {
+    padding: 20px;
+    line-height: 1.6;
+}
+
+footer {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.container {
+    background-color: #E0E0E0;
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 1500px; /* Puoi cambiare la larghezza a piacere */
+}
+
+h1, h2, p {
+    text-align: center;
+    margin: 10px center;
+}
+
+/* Carosello */
+#carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;  /* Limita l'altezza delle immagini */
+    object-fit: cover;  /* Impedisce che l'immagine venga distorta */
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel-caption h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Pulsanti per navigazione */
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2rem;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif; /* Usa Cinzel come font di base */
+    background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+    background-color: #007acc; /* Azzurro chiaro */
+    color: #fff; /* Colore del testo bianco */
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif; /* Usa Cinzel anche per il titolo */
+    font-size: 3rem;
+}
+
+header p {
+    font-family: 'Cinzel', serif; /* Usa Cinzel anche per il paragrafo */
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333; /* Colore grigio scuro per il testo del paragrafo */
+}
+
+/* Griglia degli atleti: 4 atlete per riga */
+.atlete-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 colonne di uguale larghezza */
+    gap: 20px;  /* Spazio tra le carte */
+    padding: 20px;
+}
+
+.atleta-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative; /* Importante per posizionare il testo sopra l'immagine */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.atleta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.atleta-card img {
+    width: 100%;  /* L'immagine occupa tutta la larghezza */
+    height: 100%; /* L'immagine occupa anche tutta l'altezza */
+    object-fit: cover; /* L'immagine riempie la card senza distorsioni */
+    object-position: center; /* Centra l'immagine */
+}
+
+.atleta-card .atleta-info {
+    position: absolute;
+    bottom: 10px; /* Posiziona il nome alla base dell'immagine */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Sfondo scuro per il nome per migliorarne la visibilità */
+    color: white;
+    text-align: center;
+    font-family: 'Cinzel', serif; /* Font Cinzel per il nome */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.atleta-card .atleta-info h3 {
+    margin: 0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+.modal-content img {
+    width: 100%;  /* Immagine a larghezza piena */
+    height: auto;
+    max-height: 400px; /* Limita l'altezza dell'immagine nel modal */
+    object-fit: cover; /* Mantiene l'immagine ben proporzionata */
+    object-position: center top; /* Centra l'immagine per evitare che venga tagliata dal basso */
+    margin-bottom: 20px;
+}
+
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #000;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #007acc;
+}
+
+/* Barra di navigazione */
+.navbar {
+    background-color: #005f99;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu orizzontale con i pulsanti */
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stili per i pulsanti del menu */
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Effetto hover per i pulsanti */
+.navbar-link:hover {
+    background-color: #004b7c;
+    transform: scale(1.1);
+}
+
+/* Dropdown - Posizionamento relativo */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenuto del dropdown nascosto di default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #005f99;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Link all'interno del dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Effetto hover sui link del dropdown */
+.dropdown-content a:hover {
+    background-color: #004b7c;
+}
+
+/* Mostra il dropdown quando il mouse passa sopra il pulsante */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Header */
+header {
+    background-color: #007acc; /* Azzurro chiaro */
+    color: #fff; /* Colore del testo bianco */
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif; /* Usa Cinzel anche per il titolo */
+    font-size: 3rem;
+}
+
+header p {
+    font-family: 'Cinzel', serif; /* Usa Cinzel anche per il paragrafo */
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333; /* Colore grigio scuro per il testo del paragrafo */
+}
+
+
+
+
+
+
+
+/* Carica il font Cinzel da Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+/* Stili di base */
+body {
+    font-family: 'Cinzel', serif; /* Usa Cinzel per tutto il sito */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Barra di navigazione */
+header {
+    background-color: #005f99;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Contenitore del carosello */
+.carousel-container {
+    width: 100%;
+    overflow: hidden; /* Nasconde le immagini che escono dallo schermo */
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Stile per il carosello (contenitore di immagini) */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transizione fluida per lo scorrimento */
+}
+
+/* Immagini nel carosello */
+.carousel img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover; /* Mantiene l'immagine proporzionata e centrate */
+    object-position: center top;
+    margin: 0 10px;
+    border-radius: 8px;
+}
+
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel' serif;
+    background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+    background-color: #005f99;
+    color: white;
+    font-family: 'Cinzel' serif;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* Contenitore del carosello */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Impostazioni generali */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Carosello */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #007acc;
+}
+
+header {
+    background-color: #005f99;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 2rem;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif; /* Usa Cinzel come font di base */
+    background-color: #f0f0f0;
+}
+
+/* Header */
+header {
+    background-color: #007acc; /* Azzurro chiaro */
+    color: #fff; /* Colore del testo bianco */
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-family: 'Cinzel', serif; /* Usa Cinzel anche per il titolo */
+    font-size: 3rem;
+}
+
+header p {
+    font-family: 'Cinzel', serif; /* Usa Cinzel anche per il paragrafo */
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333; /* Colore grigio scuro per il testo del paragrafo */
+}
+
+/* Griglia degli atleti: 4 atlete per riga */
+.atlete-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 colonne di uguale larghezza */
+    gap: 20px;  /* Spazio tra le carte */
+    padding: 20px;
+}
+
+.atleta-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative; /* Importante per posizionare il testo sopra l'immagine */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.atleta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.atleta-card img {
+    width: 100%;  /* L'immagine occupa tutta la larghezza */
+    height: 100%; /* L'immagine occupa anche tutta l'altezza */
+    object-fit: cover; /* L'immagine riempie la card senza distorsioni */
+    object-position: center; /* Centra l'immagine */
+}
+
+.atleta-card .atleta-info {
+    position: absolute;
+    bottom: 10px; /* Posiziona il nome alla base dell'immagine */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Sfondo scuro per il nome per migliorarne la visibilità */
+    color: white;
+    text-align: center;
+    font-family: 'Cinzel', serif; /* Font Cinzel per il nome */
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.atleta-card .atleta-info h3 {
+    margin: 0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+}
+
+.modal-content img {
+    width: 100%;  /* Immagine a larghezza piena */
+    height: auto;
+    max-height: 400px; /* Limita l'altezza dell'immagine nel modal */
+    object-fit: cover; /* Mantiene l'immagine ben proporzionata */
+    object-position: center top; /* Centra l'immagine per evitare che venga tagliata dal basso */
+    margin-bottom: 20px;
+}
+
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: #000;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #007acc;
+}
+
+/* Barra di navigazione */
+.navbar {
+    background-color: #005f99; 
+    padding: 0.8rem 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu orizzontale con i pulsanti */
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stili per i pulsanti del menu */
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Effetto hover per i pulsanti */
+.navbar-link:hover {
+    background-color: #004b7c;
+    transform: scale(1.1);
+}
+
+/* Dropdown - Posizionamento relativo */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenuto del dropdown nascosto di default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #005f99;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Link all'interno del dropdown */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Effetto hover sui link del dropdown */
+.dropdown-content a:hover {
+    background-color: #004b7c;
+}
+
+/* Mostra il dropdown quando il mouse passa sopra il pulsante */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
